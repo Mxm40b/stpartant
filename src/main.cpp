@@ -1,5 +1,7 @@
+#include <chrono>
 #include <cmath>
 #include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include <ostream>
 #include <print>
@@ -118,17 +120,26 @@ int main(void) {
   //     heights[i][j] = 400;
   // }
   //
-  heights[30][50] = 30000;
+  // heights[30][50] = 30000;
 
 
   InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
   SetTargetFPS(60); // Set our game to run at 60 frames-per-second
   //--------------------------------------------------------------------------------------
+  // std::chrono::sys_time<std::chrono::seconds> time;
+  auto time = float(std::chrono::steady_clock::now().time_since_epoch().count())/1000000000;
 
   // Main game loop
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
+
+
+    time = float(std::chrono::steady_clock::now().time_since_epoch().count())/1000000000;
+
+    ratesOfChangeX[30][50] = 80 * std::cos(time*6.28);
+    std::println("{}", time);
+
     // Update
     //----------------------------------------------------------------------------------
     // TODO: Update your variables here
