@@ -138,7 +138,7 @@ int main(void) {
     time = float(std::chrono::steady_clock::now().time_since_epoch().count())/1000000000;
 
     ratesOfChangeX[30][50] = 80 * std::cos(time*6.28);
-    std::println("{}", time);
+    // std::println("{}", time);
 
     // Update
     //----------------------------------------------------------------------------------
